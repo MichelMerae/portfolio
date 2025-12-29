@@ -1,0 +1,435 @@
+Perfect, Michel! Now I have everything I need. Let me create a comprehensive portfolio content document with structure and all the written content.
+
+Portfolio Structure & Content
+Recommended Sections:
+
+Hero - First impression, name, title, tagline
+About - Who you are, your story, what makes you unique
+What I Do - Services/capabilities for consulting clients
+Featured Projects - 6-8 detailed case studies
+Tech Stack - Visual skills overview
+Career Journey - Timeline of experience
+Certifications - Credentials that matter
+Contact - How to reach you
+
+Let me write out all the content:
+
+1. HERO SECTION
+Name: Michel Merae
+Title Options (pick one or A/B test):
+
+Primary: AI Engineer & Automation Architect
+Alternative: AI Product Designer
+
+Tagline Options:
+
+"I build AI systems that actually work in production"
+"Turning AI capabilities into business results"
+"From prototype to production — AI systems that scale"
+
+Hero Subtext:
+"I design and build intelligent automation systems that transform how businesses operate. Currently building AI-powered products at JobLeads. Available for consulting."
+Location: Hamburg, Germany 🇩🇪
+CTA Buttons:
+
+"View My Work" → scrolls to projects
+"Get In Touch" → scrolls to contact
+
+
+2. ABOUT SECTION
+Short Version (for hero or sidebar):
+"AI Engineer specializing in LLM integration, workflow automation, and multi-agent systems. I build production-ready AI applications that handle real business workloads — not just demos."
+Full About Text:
+Opening Hook:
+Most AI projects never make it to production. Mine do.
+The Story:
+I'm an AI Engineer and Automation Architect based in Hamburg, Germany. I specialize in building intelligent systems that bridge the gap between what AI can do and what businesses actually need.
+My path to AI wasn't traditional. I started in mechatronics engineering in Syria, then rebuilt my career in Germany — learning the language, completing a second degree in Industrial Engineering, and working my way through robotics operations, data analytics, and consulting before finding my focus in AI product development.
+What I Do Now:
+At JobLeads, I design and build AI-powered applications that serve hundreds of thousands of job seekers. My systems process thousands of customer interactions daily, generate personalized coaching content at scale, and turn unstructured conversations into actionable insights.
+What Makes Me Different:
+I don't just build AI models — I build complete systems. From the LLM prompts to the automation workflows to the user interfaces, I handle the full stack. Every project I ship has measurable business impact: hours saved, response times cut, insights multiplied.
+My Approach:
+I believe in AI that augments human work rather than replacing it. The best systems I've built keep humans in the loop — using AI to handle the repetitive work so people can focus on what matters.
+
+3. WHAT I DO (Services Section)
+Section Header: "How I Can Help"
+Intro Text:
+I help companies build AI systems that actually work. Whether you need to automate customer support, build conversational AI, or integrate LLMs into your existing workflows — I can take you from concept to production.
+Service Cards:
+🤖 AI-Powered Automation
+Design and build intelligent workflows that process data, generate content, and make decisions at scale. I specialize in n8n, API integrations, and LLM orchestration.
+💬 Conversational AI Systems
+Build chatbots and voice assistants that have real conversations — not just keyword matching. Multi-agent architectures, context management, and natural dialogue flows.
+📊 LLM Integration & Prompt Engineering
+Integrate OpenAI, Claude, Gemini, or other LLMs into your products. Optimize prompts for accuracy, cost, and speed. Build reliable AI features that handle edge cases.
+🔄 Process Automation Consulting
+Identify automation opportunities in your business. Design workflows that save hours of manual work every week. Implement with measurable ROI.
+CTA: "Let's discuss your project →"
+
+4. FEATURED PROJECTS
+Section Header: "Selected Work"
+Intro Text:
+Real projects with real impact. These systems are running in production, handling thousands of interactions, and delivering measurable business results.
+
+Project 1: Customer Support Automation System
+Category Tag: AI Automation
+One-liner: LLM-powered support system that generates response suggestions for customer service agents
+The Challenge:
+JobLeads receives hundreds of support tickets daily. Customer service agents were overwhelmed, response times were slow, and quality was inconsistent. The team needed a way to handle volume without sacrificing quality.
+My Solution:
+I built an intelligent automation system that processes incoming Zendesk tickets, analyzes the customer's issue, and generates suggested responses for agents to review and send.
+The system doesn't auto-reply — that would be risky. Instead, it prepares draft responses as internal notes, letting agents review, edit, and approve with a single click. This keeps humans in control while dramatically reducing the time spent crafting each response.
+Key Features:
+
+Automated ticket classification and routing
+LLM-generated response suggestions tailored to each issue
+Risk classification system (4-tier scoring) to prioritize escalations
+Human-in-the-loop approval workflow
+Integration with existing Zendesk processes
+
+Technical Implementation:
+
+n8n workflow orchestration
+Claude API for response generation
+Zendesk API for ticket management
+Custom prompt engineering for brand voice consistency
+Webhook triggers for real-time processing
+
+Results:
+
+700+ tickets processed daily
+60% reduction in agent response time
+95%+ accuracy in risk classification
+Agents can focus on complex cases while AI handles routine queries
+
+
+Project 2: Employee Survey Chatbot
+Category Tag: Multi-Agent AI
+One-liner: Conversational AI that replaces rigid questionnaires with natural dialogue to gather deep employee feedback
+The Challenge:
+Traditional employee surveys suffer from low engagement and shallow responses. People click through ratings without providing the qualitative insights HR actually needs. JobLeads wanted to understand what employees really think — not just collect numbers.
+My Solution:
+I designed a conversational chatbot that conducts employee surveys through natural dialogue. Instead of asking "Rate your satisfaction from 1-5," it asks open-ended questions and follows up based on responses.
+The system uses a multi-agent architecture where specialized AI agents analyze different dimensions of the employee experience (culture, leadership, growth, processes) while a main conversational agent maintains natural dialogue flow.
+Survey Dimensions Covered:
+
+Scaling & Operational Clarity
+Remote-First Culture & Connection
+Performance & Feedback
+Trust & Leadership
+Growth & Development
+
+Technical Implementation:
+
+CrewAI multi-agent framework
+OpenAI GPT for conversation
+Parallel agent execution for real-time analysis
+Context passing between agents
+Structured data extraction from unstructured conversations
+
+Results:
+
+10x increase in qualitative insights compared to traditional surveys
+Natural conversation flow that employees actually engage with
+Automated sentiment analysis and theme extraction
+Actionable insights for HR without manual analysis
+
+
+Project 3: Email Coaching Automation (ECC System)
+Category Tag: AI Content Generation
+One-liner: Automated system that generates thousands of personalized career coaching emails with A/B testing
+The Challenge:
+JobLeads offers premium career coaching services. Coaches needed to send personalized outreach emails to job seekers, but crafting individual emails at scale was impossible. The content needed to feel personal, not templated.
+My Solution:
+I built a multi-step AI pipeline that generates highly personalized coaching emails from user data. The system creates multiple variations, allows coaches to select the best approach, and handles delivery — all while maintaining a human-in-the-loop quality gate.
+The Workflow:
+
+Data Collection: System pulls user's resume, onboarding responses, and job search goals
+Hook Generation: AI creates 6 different personalized "hooks" based on the user's unique situation
+Coach Selection: Human coach reviews hooks and selects the best angle
+Email Generation: AI generates 2 full email variants using the selected hook
+A/B Selection: Coach picks the final version
+Automated Delivery: System sends via email infrastructure
+
+Technical Implementation:
+
+OpenAI models (including o3 and o4-mini) for content generation
+n8n for workflow orchestration
+Microsoft Graph API for email delivery
+React-based coach portal for selection interface
+Excel integration for user data management
+
+Results:
+
+Thousands of personalized emails generated and sent
+Maintained quality through human-in-the-loop approach
+A/B testing improved conversion rates
+Coaches focus on strategy while AI handles writing
+
+
+Project 4: Voice AI Integration
+Category Tag: Voice Technology
+One-liner: End-to-end voice recording and transcription system integrated with chatbot infrastructure
+The Challenge:
+Some users prefer speaking to typing. The existing JobLeads chatbot was text-only, limiting accessibility and engagement for users who wanted voice interaction.
+My Solution:
+I built a complete voice pipeline that lets users record voice messages in the browser, transcribes them in real-time, and feeds the text into the existing chatbot system — creating a seamless voice-to-AI experience.
+System Architecture:
+
+Frontend: Web Audio API for browser-based recording
+Transmission: Base64-encoded audio sent to backend
+Transcription: OpenAI Whisper API for speech-to-text
+Integration: Transcribed text flows into existing chat pipeline
+Orchestration: n8n manages the entire flow
+
+Technical Considerations:
+
+WebM audio format (browser-native, Whisper-compatible)
+Chunked processing for long recordings
+Error handling for poor audio quality
+25MB file limit management
+
+Results:
+
+Voice input option added without rebuilding the chatbot
+Seamless integration with existing infrastructure
+Improved accessibility for users who prefer speaking
+
+
+Project 5: KPI Automation Dashboard
+Category Tag: Data Automation
+Company: Starship Technologies
+One-liner: Automated KPI reporting system that reduced weekly processing from 4 hours to 30 minutes
+The Challenge:
+Starship's delivery robot operations generated massive amounts of data. Creating weekly KPI reports for the team and industrial clients required hours of manual data extraction, calculation, and formatting. The process was error-prone and consumed valuable time.
+My Solution:
+I built an automated reporting pipeline using Google Apps Script and SQL that pulls operational data, calculates KPIs, and generates formatted reports — transforming a 4-hour weekly task into a 30-minute review process.
+What It Automates:
+
+Delivery success rates and timing metrics
+Robot autonomy performance
+Fleet utilization statistics
+Client-specific breakdowns
+Trend analysis and anomaly flagging
+
+Technical Implementation:
+
+SQL queries for data extraction from Databricks
+Google Apps Script for automation logic
+Google Sheets for calculations and formatting
+Automated email distribution
+Error logging and alerting
+
+Results:
+
+Weekly reporting time: 4 hours → 30 minutes (87% reduction)
+Eliminated manual calculation errors
+Real-time fleet insights for data-driven decisions
+Freed up time for strategic analysis instead of data wrangling
+
+
+Project 6: Industrial Mapping App
+Category Tag: Operations Tool
+Company: Starship Technologies
+One-liner: AppSheet-based mapping application that accelerated industrial client onboarding and saved 20-40 hours per deployment
+The Challenge:
+Deploying Starship's delivery robots at new industrial sites required extensive mapping work — documenting zones, paths, charging stations, and safety requirements. The process was manual, documentation was scattered, and each new site meant reinventing the wheel.
+My Solution:
+I built a custom mapping application using Google AppSheet that standardized the entire onboarding process. Field teams could document site details on mobile devices, data synced automatically, and all information flowed into a central system.
+App Features:
+
+Mobile-friendly interface for field mapping
+Photo documentation with GPS tagging
+Standardized forms for consistent data collection
+Real-time sync to central Google Sheets database
+Automatic report generation for clients
+
+Technical Implementation:
+
+Google AppSheet for mobile app development
+Google Sheets as backend database
+Google Apps Script for automation
+Integration with mapping workflows
+
+Results:
+
+20-40 hours saved per client onboarding
+Standardized documentation across all deployments
+Reduced errors in site configuration
+Faster ramp-up time for new industrial locations
+
+Notable Deployments:
+
+Merck KGaA Darmstadt (on-site)
+Wacker Burghausen (remote)
+La Roche Penzberg (remote)
+Finland Launch
+
+
+Project 7: Pipeline Inspection Data Analysis
+Category Tag: Data Engineering
+Company: EMPIT GmbH
+One-liner: End-to-end data pipeline for electromagnetic inspection projects that cut validation time from hours to minutes
+The Challenge:
+EMPIT inspects "unpiggable" pipelines across Europe using electromagnetic technology. Each project generated massive datasets requiring cleaning, validation, spline calculations, and visualization before delivery to clients. The manual process was slow and error-prone.
+My Solution:
+I owned the complete data pipeline — from raw inspection data to client-ready reports. I built Python scripts for quality control, automated validation checks, and streamlined the entire workflow from field-to-report.
+Pipeline Stages:
+
+Data Ingestion: Download project and inspection data
+Quality Control: Verify calibration files, check completeness
+Processing: Calculate and adjust splines, sort and group data
+Validation: Run automated checks, flag anomalies
+Visualization: Prepare data for web-based client apps
+Review: Final inspection team verification
+Delivery: Upload to customer portal
+
+Technical Implementation:
+
+Python for data processing and validation scripts
+SQL for data management
+Custom monitoring app for quality control
+Web-based apps for client delivery
+
+Results:
+
+Validation time reduced from hours to minutes per project
+20+ European pipeline projects processed
+Systematic QC workflows with automated error detection
+Faster turnaround for client deliverables
+
+
+Project 8: Risk Classification System
+Category Tag: AI Classification
+One-liner: LLM-powered ticket classification system with 95%+ accuracy in identifying escalation risk
+The Challenge:
+Not all support tickets are equal. Some customers are frustrated but patient; others are about to leave negative reviews or initiate chargebacks. The support team needed to prioritize high-risk tickets, but manually assessing escalation risk was time-consuming and inconsistent.
+My Solution:
+I built a risk classification system that analyzes ticket content and assigns escalation risk scores. The system uses carefully engineered prompts to detect signals of customer frustration, explicit threats, and urgency indicators.
+Classification Tiers:
+
+Score 0: Not related (system emails, non-customer messages)
+Score 1: No risk (happy/neutral customers, no refund discussion)
+Score 2: Low risk (polite refund requests, neutral tone)
+Score 3: Medium risk (angry/frustrated, no explicit threats)
+Score 4: High risk (explicit mentions of reviews, chargebacks, legal action)
+
+Prompt Engineering Challenges Solved:
+
+Eliminated contradictions between classification examples
+Reduced overfitting to specific phrases
+Balanced sensitivity vs. false positives
+Handles messy ticket data (HTML, signatures, quoted threads)
+
+Results:
+
+95%+ accuracy in risk categorization
+High-risk tickets immediately visible to team leads
+Proactive intervention before escalation
+Data-driven approach to customer retention
+
+
+5. TECH STACK SECTION
+Section Header: "Technologies I Work With"
+AI & Machine Learning
+TechnologyExperience LevelContextPrompt EngineeringExpertDaily production use across all projectsOpenAI API (GPT-4, o3, Whisper)ExpertPrimary LLM for most applicationsClaude APIExpertCustomer support automationCrewAIAdvancedMulti-agent system developmentGemini APIIntermediateExploring for specific use casesRetell AIIntermediateVoice AI applications
+Automation & Integration
+TechnologyExperience LevelContextn8nExpert5+ years, hundreds of production workflowsAPI IntegrationExpertREST, webhooks, OAuth flowsZendesk APIAdvancedTicket management, triggers, automationsMicrosoft GraphAdvancedEmail, calendar integrationGoogle Apps ScriptAdvancedAutomation, reporting
+Programming
+TechnologyExperience LevelContextPythonAdvancedData processing, automation, AI integrationJavaScriptAdvancedn8n code nodes, React, Node.jsSQLAdvancedAnalytics, data extraction
+Emerging Technologies
+TechnologyExperience LevelContextMCP (Model Context Protocol)LearningClaude Code, n8n integrationPlaywrightLearningBrowser automation
+
+6. CAREER JOURNEY (Timeline)
+Section Header: "My Path"
+2025 - Present
+AI Applications Designer @ JobLeads
+Hamburg, Germany
+Building AI-powered products for a job search platform serving hundreds of thousands of users. Designing and implementing customer support automation, conversational AI, and personalized content generation systems.
+
+2024 - 2025
+Data Analytics Consultant @ PROMATIS
+Hamburg, Germany
+Oracle EPM Cloud implementation and optimization. Built self-service analytics dashboards for enterprise clients. Worked with OTBI, BI Publisher, and business process modeling.
+
+2022 - 2024
+Data Analyst @ EMPIT GmbH
+Hamburg, Germany
+Owned the complete data pipeline for electromagnetic pipeline inspection projects across Europe. Built Python/SQL quality control systems. Implemented Scrumban methodology through bachelor thesis research.
+
+2019 - 2022
+Robotic Operations Specialist @ Starship Technologies
+Hamburg, Germany
+Managed 3D mapping for autonomous delivery robots. Created automated KPI reporting systems. Led deployments for enterprise clients including Merck and Wacker. Built tools that saved 20-40 hours per client onboarding.
+
+2017 - 2024
+B.Sc. Industrial Engineering @ University of Hamburg & HAW Hamburg
+Focus: Business Informatics
+Completed part-time while working. Thesis: "Analysis of Agile Frameworks for Data Analytics Teams" — implemented recommendations at EMPIT.
+
+2015 - 2017
+Arrived in Germany
+Learned German to C1 level. Rebuilt career from scratch.
+
+2008 - 2012
+B.Eng. Mechatronics @ Al-Baath University
+Homs, Syria
+Foundation in engineering, electronics, and automation. Skills in Arduino, MATLAB, AutoCAD.
+
+7. CERTIFICATIONS
+Section Header: "Credentials"
+AI & Machine Learning
+
+Multi AI Agent Systems with crewAI — DeepLearning.AI (2024)
+Practical Multi AI Agents and Advanced Use Cases — DeepLearning.AI (2024)
+Finetuning Large Language Models — DeepLearning.AI (2024)
+Machine Learning Specialization — Stanford Online / DeepLearning.AI (2022)
+
+Product & Project Management
+
+IBM Product Owner Professional Certificate — Coursera (2025)
+Professional Scrum Master I (PSM I) — Scrum.org (2024)
+Basiszertifikat Projektmanagement (GPM) — PM-ZERT (2022)
+
+Data & Analytics
+
+Google Data Analytics Professional Certificate — Google (2022)
+SAP Technology Consultant Professional Certificate — SAP (2024)
+
+
+8. CONTACT SECTION
+Section Header: "Let's Talk"
+Intro Text:
+Have a project in mind? I'm available for consulting on AI automation, LLM integration, and intelligent workflow design.
+Contact Methods:
+
+Email: michel.merae@gmail.com
+LinkedIn: linkedin.com/in/michel-merae
+Location: Hamburg, Germany
+
+Availability Note:
+"Currently working full-time at JobLeads. Available for consulting projects and speaking opportunities."
+CTA Button: "Send Me a Message"
+
+ADDITIONAL ELEMENTS
+Footer
+
+© 2025 Michel Merae
+Hamburg, Germany
+Language toggle: EN | DE | AR (coming soon)
+
+Meta Description (for SEO)
+"Michel Merae — AI Engineer & Automation Architect based in Hamburg. I build production-ready AI systems including LLM integration, multi-agent architectures, and intelligent automation. Available for consulting."
+Page Title
+"Michel Merae | AI Engineer & Automation Architect"
+
+Questions Before Finalizing
+
+Project Order: I've arranged projects with JobLeads work first (most impressive/recent), then Starship, then EMPIT. Does this order work for you?
+Service Pricing: Do you want to include pricing information, or keep it as "let's discuss"?
+Testimonials: Do you have any quotes from colleagues or clients you could include?
+Blog Section: Do you want a blog/articles section for future content (GDE application benefits from published content)?
+Case Study Depth: Should any projects have even more detail, or is this level right?
+
+Let me know if you want me to adjust any section, add more projects, or change the tone/positioning anywhere!
