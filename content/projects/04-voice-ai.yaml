@@ -1,0 +1,8 @@
+title: Voice AI Integration
+category: Voice Technology
+description: End-to-end voice recording and transcription system integrated with chatbot infrastructure using OpenAI Whisper and Web Audio API.
+tech:
+  - Whisper API
+  - Web Audio API
+  - n8n
+href: "#"

@@ -1,0 +1,8 @@
+title: Employee Survey Chatbot
+category: Multi-Agent AI
+description: Conversational AI that replaces rigid questionnaires with natural dialogue to gather deep employee feedback. Powered by CrewAI multi-agent framework.
+tech:
+  - CrewAI
+  - OpenAI GPT
+  - Python
+href: "#"

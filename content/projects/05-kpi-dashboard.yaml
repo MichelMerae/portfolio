@@ -1,0 +1,8 @@
+title: KPI Automation Dashboard
+category: Data Automation
+description: Automated KPI reporting system for Starship Technologies that reduced weekly processing from 4 hours to 30 minutes using SQL and Google Apps Script.
+tech:
+  - SQL
+  - Google Apps Script
+  - Databricks
+href: "#"

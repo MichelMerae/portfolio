@@ -1,0 +1,9 @@
+company: JobLeads
+role: AI Applications Designer
+period: 2025 - Present
+location: Hamburg, Germany
+description: Building AI-powered products for a job search platform. Designing and implementing customer support automation, conversational AI, and personalized content generation systems.
+tech:
+  - OpenAI
+  - n8n
+  - Multi-Agent Systems

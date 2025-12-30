@@ -6,69 +6,11 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
+import type { Project as ProjectType } from "@/lib/content";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const projects = [
-    {
-        title: "Customer Support Automation System",
-        category: "AI Automation",
-        description: "LLM-powered support system that generates response suggestions for customer service agents. 700+ tickets processed daily with 60% reduction in response time.",
-        tech: ["n8n", "Claude API", "Zendesk API"],
-        href: "#",
-    },
-    {
-        title: "Employee Survey Chatbot",
-        category: "Multi-Agent AI",
-        description: "Conversational AI that replaces rigid questionnaires with natural dialogue to gather deep employee feedback. Powered by CrewAI multi-agent framework.",
-        tech: ["CrewAI", "OpenAI GPT", "Python"],
-        href: "#",
-    },
-    {
-        title: "Email Coaching Automation",
-        category: "AI Content Generation",
-        description: "Automated system that generates thousands of personalized career coaching emails with A/B testing, utilizing OpenAI o3/o4 models and Microsoft Graph API.",
-        tech: ["OpenAI", "n8n", "MS Graph API"],
-        href: "#",
-    },
-    {
-        title: "Voice AI Integration",
-        category: "Voice Technology",
-        description: "End-to-end voice recording and transcription system integrated with chatbot infrastructure using OpenAI Whisper and Web Audio API.",
-        tech: ["Whisper API", "Web Audio API", "n8n"],
-        href: "#",
-    },
-    {
-        title: "KPI Automation Dashboard",
-        category: "Data Automation",
-        description: "Automated KPI reporting system for Starship Technologies that reduced weekly processing from 4 hours to 30 minutes using SQL and Google Apps Script.",
-        tech: ["SQL", "Google Apps Script", "Databricks"],
-        href: "#",
-    },
-    {
-        title: "Industrial Mapping App",
-        category: "Operations Tool",
-        description: "AppSheet-based mapping application that accelerated industrial client onboarding and saved 20-40 hours per deployment for Starship Technologies.",
-        tech: ["Google AppSheet", "Google Sheets", "GPS"],
-        href: "#",
-    },
-    {
-        title: "Pipeline Inspection Data Analysis",
-        category: "Data Engineering",
-        description: "End-to-end data pipeline for electromagnetic inspection projects that cut validation time from hours to minutes using Python and SQL.",
-        tech: ["Python", "SQL", "Data Pipeline"],
-        href: "#",
-    },
-    {
-        title: "Risk Classification System",
-        category: "AI Classification",
-        description: "LLM-powered ticket classification system with 95%+ accuracy in identifying escalation risk, enabling proactive customer retention.",
-        tech: ["LLM Prompts", "Classification", "Risk Analysis"],
-        href: "#",
-    },
-];
-
-function ProjectCard({ project, index, registerCard }: { project: any; index: number; registerCard: (el: HTMLDivElement | null) => void }) {
+function ProjectCard({ project, index, registerCard }: { project: ProjectType; index: number; registerCard: (el: HTMLDivElement | null) => void }) {
     return (
         <div
             ref={registerCard}
@@ -121,7 +63,7 @@ function ProjectCard({ project, index, registerCard }: { project: any; index: nu
     );
 }
 
-export function Projects() {
+export function Projects({ projects }: { projects: ProjectType[] }) {
     const sectionRef = useRef<HTMLDivElement>(null);
     const triggerRef = useRef(null);
     const cardsRef = useRef<(HTMLDivElement | null)[]>([]);

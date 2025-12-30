@@ -1,0 +1,8 @@
+title: Risk Classification System
+category: AI Classification
+description: LLM-powered ticket classification system with 95%+ accuracy in identifying escalation risk, enabling proactive customer retention.
+tech:
+  - LLM Prompts
+  - Classification
+  - Risk Analysis
+href: "#"

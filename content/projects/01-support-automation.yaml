@@ -1,0 +1,9 @@
+title: Customer Support Automation System
+category: AI Automation
+description: LLM-powered support system that generates response suggestions for customer service agents. 700+ tickets processed daily with 60% reduction in response time.
+tech:
+  - n8n
+  - Claude API
+  - Zendesk API
+  - OpenAI
+href: "#"

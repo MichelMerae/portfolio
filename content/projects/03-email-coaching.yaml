@@ -1,0 +1,8 @@
+title: Email Coaching Automation
+category: AI Content Generation
+description: Automated system that generates thousands of personalized career coaching emails with A/B testing, utilizing OpenAI o3/o4 models and Microsoft Graph API.
+tech:
+  - OpenAI
+  - n8n
+  - MS Graph API
+href: "#"

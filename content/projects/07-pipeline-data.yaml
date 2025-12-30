@@ -1,0 +1,8 @@
+title: Pipeline Inspection Data Analysis
+category: Data Engineering
+description: End-to-end data pipeline for electromagnetic inspection projects that cut validation time from hours to minutes using Python and SQL.
+tech:
+  - Python
+  - SQL
+  - Data Pipeline
+href: "#"

@@ -1,0 +1,9 @@
+company: EMPIT GmbH
+role: Data Analyst
+period: 2022 - 2024
+location: Hamburg, Germany
+description: Owned the complete data pipeline for electromagnetic pipeline inspection projects. Built Python/SQL quality control systems.
+tech:
+  - Python
+  - SQL
+  - Data Pipelines

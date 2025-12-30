@@ -4,45 +4,11 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import type { Experience as ExperienceType } from "@/lib/content";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const experience = [
-    {
-        period: "2025 - Present",
-        role: "AI Applications Designer",
-        company: "JobLeads",
-        location: "Hamburg, Germany",
-        description: "Building AI-powered products for a job search platform. Designing and implementing customer support automation, conversational AI, and personalized content generation systems.",
-        tech: ["OpenAI", "n8n", "Multi-Agent Systems"]
-    },
-    {
-        period: "2024 - 2025",
-        role: "Data Analytics Consultant",
-        company: "PROMATIS",
-        location: "Hamburg, Germany",
-        description: "Oracle EPM Cloud implementation and optimization. Built self-service analytics dashboards for enterprise clients.",
-        tech: ["Oracle EPM", "BI Publisher", "Analytics"]
-    },
-    {
-        period: "2022 - 2024",
-        role: "Data Analyst",
-        company: "EMPIT GmbH",
-        location: "Hamburg, Germany",
-        description: "Owned the complete data pipeline for electromagnetic pipeline inspection projects. Built Python/SQL quality control systems.",
-        tech: ["Python", "SQL", "Data Pipelines"]
-    },
-    {
-        period: "2019 - 2022",
-        role: "Robotic Operations Specialist",
-        company: "Starship Technologies",
-        location: "Hamburg, Germany",
-        description: "Managed 3D mapping for autonomous delivery robots. Created automated KPI reporting systems using Google Apps Script and SQL.",
-        tech: ["Robotics", "Google Apps Script", "Mapping"]
-    }
-];
-
-export function Experience() {
+export function Experience({ experience }: { experience: ExperienceType[] }) {
     const container = useRef(null);
     const pathRef = useRef<SVGPathElement>(null);
 
