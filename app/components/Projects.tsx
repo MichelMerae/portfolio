@@ -10,36 +10,49 @@ import type { Project as ProjectType } from "@/lib/content";
 
 gsap.registerPlugin(ScrollTrigger);
 
+import Image from "next/image";
+
 function ProjectCard({ project, index, registerCard }: { project: ProjectType; index: number; registerCard: (el: HTMLDivElement | null) => void }) {
     return (
         <div
             ref={registerCard}
-            className="w-[80vw] md:w-[60vw] h-[70vh] flex flex-col justify-between bg-zinc-900/50 border border-zinc-800 p-8 md:p-16 rounded-[2rem] relative group hover:border-zinc-500/50 transition-colors backdrop-blur-sm overflow-hidden flex-shrink-0"
+            className="w-[80vw] md:w-[60vw] h-[70vh] flex flex-col justify-between bg-zinc-900 border border-zinc-800 p-8 md:p-16 rounded-[2rem] relative group hover:border-zinc-500/50 transition-colors overflow-hidden flex-shrink-0"
         >
-            {/* Dynamic Spotlight Background */}
+            {/* Background Image */}
+            <div className="absolute inset-0 z-0 select-none pointer-events-none">
+                <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/80 to-zinc-950/30" />
+            </div>
+
+            {/* Dynamic Spotlight Background - Merged with Image Overlay */}
             <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10 mix-blend-overlay"
                 style={{
-                    background: `radial-gradient(2500px circle at var(--mouse-x) var(--mouse-y), rgba(168,85,247,0.15), transparent 50%)`,
+                    background: `radial-gradient(2500px circle at var(--mouse-x) var(--mouse-y), rgba(168,85,247,0.3), transparent 50%)`,
                 }}
             />
 
-            <div className="z-10 pointer-events-none">
+            <div className="z-20 pointer-events-none">
                 {/* Content above background */}
                 <div className="flex justify-between items-start mb-8">
-                    <span className="px-4 py-1 rounded-full border border-zinc-700 bg-zinc-950 text-sm text-zinc-300">
+                    <span className="px-4 py-1 rounded-full border border-zinc-700/50 bg-zinc-950/50 text-sm text-zinc-300 backdrop-blur-md">
                         {project.category}
                     </span>
                     <span className="text-zinc-600 font-mono">0{index + 1}</span>
                 </div>
-                <h3 className="text-4xl md:text-6xl font-bold mb-6 text-white group-hover:text-purple-100 transition-colors">
+                <h3 className="text-4xl md:text-6xl font-bold mb-6 text-white group-hover:text-purple-100 transition-colors drop-shadow-lg">
                     {project.title}
                 </h3>
                 <div className="flex flex-wrap gap-2">
                     {project.tech.map((t: string) => (
                         <span
                             key={t}
-                            className="text-xs text-zinc-400 bg-zinc-950/50 px-3 py-1 rounded-md border border-zinc-800"
+                            className="text-xs text-zinc-300 bg-zinc-900/80 px-3 py-1 rounded-md border border-zinc-700/50 backdrop-blur-sm"
                         >
                             {t}
                         </span>
@@ -47,8 +60,8 @@ function ProjectCard({ project, index, registerCard }: { project: ProjectType; i
                 </div>
             </div>
 
-            <div className="z-10 border-t border-zinc-800 pt-8 mt-auto pointer-events-auto">
-                <p className="text-lg text-zinc-400 mb-8 line-clamp-3 pointer-events-none">
+            <div className="z-20 border-t border-zinc-800/50 pt-8 mt-auto pointer-events-auto">
+                <p className="text-lg text-zinc-300 mb-8 line-clamp-3 pointer-events-none drop-shadow-md">
                     {project.description}
                 </p>
                 <Link

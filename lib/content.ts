@@ -19,6 +19,7 @@ export type Project = {
     category: string;
     description: string;
     tech: string[];
+    image: string;
     href: string;
 };
 
