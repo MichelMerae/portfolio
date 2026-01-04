@@ -1,0 +1,16 @@
+title: "Analysis of Agile Frameworks for Data Analytics Teams"
+role: "Bachelorand / Data Analyst"
+company: "EMPIT GmbH"
+challenge: "Optimization of the Data Analysis Team's workflow through theoretical investigation of agile frameworks (Scrum, Scrumban, XP, Crystal) and As-Is analysis via employee interviews."
+solution: "Selected Scrumban using the Analytic Hierarchy Process (AHP). Developed a specific Scrumban board and established a continuous improvement process."
+results:
+  - "Implemented Scrumban methodology."
+  - "Developed a customized Scrumban board for the team."
+  - "Established a continuous improvement process."
+tags:
+  - "Scrum"
+  - "Scrumban"
+  - "AHP"
+  - "Process Optimization"
+  - "Agile"
+image: "https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?auto=format&fit=crop&w=800&q=80"
