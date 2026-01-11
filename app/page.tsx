@@ -3,7 +3,7 @@ import { Hero } from "./components/Hero";
 import { About } from "./components/About";
 import { Experience } from "./components/Experience";
 import { Services } from "./components/Services";
-import { Projects } from "./components/Projects";
+import BentoGrid from "./components/BentoGrid";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { getExperiences, getProjects, getServices } from "@/lib/content";
@@ -20,7 +20,7 @@ export default function Home() {
       <About />
       <Experience experience={experiences} />
       <Services services={services} />
-      <Projects projects={projects} />
+      <BentoGrid projects={projects} />
       <Contact />
       <Footer />
     </main>
