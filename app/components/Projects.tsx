@@ -7,10 +7,9 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
 import type { Project as ProjectType } from "@/lib/content";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
-
-import Image from "next/image";
 
 function ProjectCard({ project, index, registerCard }: { project: ProjectType; index: number; registerCard: (el: HTMLDivElement | null) => void }) {
     return (
@@ -20,12 +19,14 @@ function ProjectCard({ project, index, registerCard }: { project: ProjectType; i
         >
             {/* Background Image */}
             <div className="absolute inset-0 z-0 select-none pointer-events-none">
-                <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700"
-                />
+                {project.image && (
+                    <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-cover opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700"
+                    />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/80 to-zinc-950/30" />
             </div>
 
@@ -49,7 +50,7 @@ function ProjectCard({ project, index, registerCard }: { project: ProjectType; i
                     {project.title}
                 </h3>
                 <div className="flex flex-wrap gap-2">
-                    {project.tech.map((t: string) => (
+                    {project.tech?.map((t: string) => (
                         <span
                             key={t}
                             className="text-xs text-zinc-300 bg-zinc-900/80 px-3 py-1 rounded-md border border-zinc-700/50 backdrop-blur-sm"
@@ -65,7 +66,7 @@ function ProjectCard({ project, index, registerCard }: { project: ProjectType; i
                     {project.description}
                 </p>
                 <Link
-                    href={project.href}
+                    href={project.href || '#'}
                     className="inline-flex items-center gap-3 text-white font-bold hover:gap-4 transition-all group/link"
                 >
                     View Case Study{" "}
