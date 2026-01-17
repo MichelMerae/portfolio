@@ -131,7 +131,7 @@ export function Projects({ projects }: { projects: ProjectType[] }) {
                         <div className="absolute inset-0 bg-[radial-gradient(circle_at_0%_50%,rgba(100,20,200,0.1),rgba(0,0,0,0))]" />
                         <span className="text-purple-400 font-mono mb-6 block">01 / WORK</span>
                         <h2 className="text-5xl md:text-8xl font-bold mb-8">
-                            Selected
+                            My
                             <br /> Projects
                         </h2>
                         <p className="text-xl text-zinc-400 max-w-xl">
