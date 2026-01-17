@@ -122,7 +122,7 @@ export function Projects({ projects }: { projects: ProjectType[] }) {
     };
 
     return (
-        <section className="bg-zinc-950 overflow-hidden" onMouseMove={handleMouseMove}>
+        <section id="work" className="bg-zinc-950 overflow-hidden" onMouseMove={handleMouseMove}>
             {/* Trigger div that gets pinned */}
             <div ref={triggerRef}>
                 <div ref={sectionRef} className="h-screen w-max flex flex-row flex-nowrap relative">

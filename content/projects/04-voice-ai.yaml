@@ -3,7 +3,7 @@ category: Voice Technology
 description: End-to-end voice recording and transcription system integrated with chatbot infrastructure using OpenAI Whisper and Web Audio API.
 tech:
   - Whisper API
-  - Web Audio API
+  - Web Audio API 2
   - n8n
 image: "https://images.unsplash.com/photo-1589254065909-b7086229d08c?auto=format&fit=crop&q=80"
 href: "#"
