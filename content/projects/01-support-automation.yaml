@@ -1,10 +1,16 @@
-title: Customer Support Automation System
-category: AI Automation
-description: LLM-powered support system that generates response suggestions for customer service agents. 700+ tickets processed daily with 60% reduction in response time.
-tech:
-  - n8n
-  - Claude API
-  - Zendesk API
-  - OpenAI
-image: "/images/linkedin.jpeg"
-href: "#"
+title: Drafting Zendesk replies with human review
+category: Support automation
+description: A support agent opens a ticket with a draft grounded in the help center, then decides what gets sent.
+tech: [n8n, Zendesk API, OpenAI]
+study:
+  slug: zendesk-draft-review
+  organization: JobLeads
+  year: "2026"
+  visual: ticket
+  sections:
+    - heading: What the support team needed
+      text: A short question can have a long history. To write a useful reply, a reviewer needs the previous conversation and the help article that applies to this customer. I built the workflow behind an assistant that brings those pieces together inside Zendesk.
+    - heading: How the draft reached the reviewer
+      text: The workflow fetched the ticket thread, looked up help content in the customer’s language and English, and generated a reply. A support agent could use it as written, edit it, or reject it. The agent kept control of the final message.
+    - heading: What changed after review
+      text: I compared drafts with the replies people actually sent. If a draft missed an earlier message, I checked the thread retrieval. If it repeated the wrong guidance, I checked the help article. That distinction gave me a concrete change to test on the next set of tickets.

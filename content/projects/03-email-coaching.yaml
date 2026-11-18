@@ -1,9 +1,16 @@
-title: Email Coaching Automation
-category: AI Content Generation
-description: Automated system that generates thousands of personalized career coaching emails with A/B testing, utilizing OpenAI o3/o4 models and Microsoft Graph API.
-tech:
-  - OpenAI
-  - n8n
-  - MS Graph API
-image: "https://images.unsplash.com/photo-1557200134-90327ee9fafa?auto=format&fit=crop&q=80"
-href: "#"
+title: Personalizing career coaching emails
+category: Lifecycle email
+description: A workflow turned a job seeker’s background and matching roles into a coaching email, then tested which changes helped readers act.
+tech: [n8n, OpenAI, Postmark]
+study:
+  slug: personalized-email
+  organization: JobLeads
+  year: "2026"
+  visual: email
+  sections:
+    - heading: Starting with the reader
+      text: A list of open jobs leaves the reader to work out why each role appeared. I built a workflow that combined résumé and onboarding information with a search for relevant jobs. The email could then explain a specific connection between someone’s experience and an opening.
+    - heading: Testing the message
+      text: I compared versions of the email, including a different sender and signature and a version that explained how the search was performed. I looked at clicks on job links as well as opens, because reaching a relevant listing was the action the email was meant to support.
+    - heading: What the experiment taught me
+      text: The extra search explanation sounded helpful in planning, but readers clicked fewer job links in that version. I also checked repeat sends and how clicks were recorded before interpreting the results. Those checks shaped what I would keep in the next version.

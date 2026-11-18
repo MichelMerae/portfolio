@@ -1,3 +1,3 @@
-title: AI-Powered Automation
-description: Design and build intelligent workflows that process data, generate content, and make decisions at scale. I specialize in n8n, API integrations, and LLM orchestration.
-icon: Workflow
+title: Audit an n8n workflow
+description: Bring one workflow that fails, duplicates an action, or needs too much manual checking. I trace a real example through each integration and test the fix.
+deliverable: A corrected workflow, test cases and handover notes.

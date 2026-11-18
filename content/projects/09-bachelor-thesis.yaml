@@ -13,4 +13,6 @@ tags:
   - "AHP"
   - "Process Optimization"
   - "Agile"
-image: "https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?auto=format&fit=crop&w=800&q=80"
+category: Process improvement
+description: I compared agile frameworks for EMPIT’s data analysis team and used the Analytic Hierarchy Process to select Scrumban.
+tech: [Scrumban, AHP, Process analysis]

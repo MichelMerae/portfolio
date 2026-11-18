@@ -1,28 +1,24 @@
-import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
 import { About } from "./components/About";
 import { Experience } from "./components/Experience";
 import { Services } from "./components/Services";
 import { Projects } from "./components/Projects";
 import { Contact } from "./components/Contact";
-import { Footer } from "./components/Footer";
-import { getExperiences, getProjects, getServices } from "@/lib/content";
+import { getExperiences, getCaseStudies, getServices } from "@/lib/content";
+
+export const metadata = { alternates: { canonical: "/" } };
 
 export default function Home() {
-  const experiences = getExperiences();
-  const services = getServices();
-  const projects = getProjects();
-
   return (
-    <main className="min-h-screen bg-zinc-950 text-white selection:bg-white/20">
-      <Navbar />
+    <main>
       <Hero />
-      <About />
-      <Experience experience={experiences} />
-      <Services services={services} />
-      <Projects projects={projects} />
+      <Projects projects={getCaseStudies()} />
+      <Services services={getServices()} />
+      <section className="wrap section about-grid">
+        <About />
+        <Experience experience={getExperiences()} />
+      </section>
       <Contact />
-      <Footer />
     </main>
   );
 }
