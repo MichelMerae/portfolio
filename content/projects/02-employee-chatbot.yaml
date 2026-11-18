@@ -5,3 +5,8 @@ tech:
   - CrewAI
   - OpenAI GPT
   - Python
+image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?auto=format&fit=crop&q=80"
+slug: "employee-survey-chatbot"
+context: "Employee feedback"
+approach: "I built a conversational survey with HR so employees could explain an answer in their own words. A participant could return to a session and continue where they left off."
+outcome: "The analysis looked at where people stopped and how many sessions reached the end. That helped distinguish friction in the opening questions from friction later in the conversation."

@@ -5,3 +5,8 @@ tech:
   - Whisper API
   - Web Audio API
   - n8n
+image: "https://images.unsplash.com/photo-1589254065909-b7086229d08c?auto=format&fit=crop&q=80"
+slug: "voice-transcription"
+context: "Conversational interfaces"
+approach: "I connected browser audio recording to transcription so a spoken response could enter the same chatbot conversation as a typed one."
+outcome: "The browser captured the recording through the Web Audio API. The workflow sent the audio to Whisper and passed the transcript to the chatbot, giving the user a voice input path."

@@ -13,6 +13,10 @@ tags:
   - "AHP"
   - "Process Optimization"
   - "Agile"
-category: Process improvement
-description: I compared agile frameworks for EMPIT’s data analysis team and used the Analytic Hierarchy Process to select Scrumban.
-tech: [Scrumban, AHP, Process analysis]
+image: "https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?auto=format&fit=crop&w=800&q=80"
+category: Process Optimization
+description: Selected and implemented Scrumban for a data analytics team using employee interviews and the Analytic Hierarchy Process.
+slug: "agile-frameworks"
+context: "EMPIT · Bachelor’s thesis"
+approach: "I interviewed the data analysis team about its existing workflow and compared Scrum, Scrumban, XP and Crystal using the Analytic Hierarchy Process."
+outcome: "I selected Scrumban, developed a board for the team and established a continuous improvement process. The thesis connected a structured selection method with a change the team could use."

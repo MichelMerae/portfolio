@@ -1,16 +1,12 @@
-title: Cutting weekly KPI reporting time
-category: Operations analytics
-description: I automated a weekly robotics operations report at Starship. Preparing it went from four hours to 30 minutes.
-tech: [SQL, Google Apps Script, Databricks]
-study:
-  slug: kpi-reporting
-  organization: Starship Technologies
-  year: "2019–2022"
-  visual: report
-  sections:
-    - heading: A recurring operations task
-      text: In delivery-robot operations, preparing the weekly KPI report took about four hours. The team needed a consistent view of performance, and repeating the same preparation work each week took time away from operations.
-    - heading: What I automated
-      text: I used SQL to prepare the reporting data and Google Apps Script to automate the spreadsheet work. The weekly report could be refreshed from the data, giving the team a repeatable process.
-    - heading: The result
-      text: Weekly preparation fell to about 30 minutes. The three and a half hours saved refer to preparing this particular report each week. It is a small example of the kind of repetitive task I look for before proposing a larger system.
+title: KPI Automation Dashboard
+category: Data Automation
+description: Automated KPI reporting system for Starship Technologies that reduced weekly processing from 4 hours to 30 minutes using SQL and Google Apps Script.
+tech:
+  - SQL
+  - Google Apps Script
+  - Databricks
+image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80"
+slug: "kpi-reporting"
+context: "Starship Technologies"
+approach: "Preparing the weekly operations report took about four hours. I used SQL to prepare the data and Google Apps Script to automate the recurring spreadsheet work."
+outcome: "Weekly preparation fell to about 30 minutes. That freed roughly three and a half hours per week for the operations team."

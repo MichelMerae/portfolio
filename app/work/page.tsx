@@ -1,50 +1,28 @@
 import Link from "next/link";
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { getProjects } from "@/lib/content";
 
 export const metadata = {
-  title: "Projects",
-  description:
-    "Case studies and projects in AI engineering, automation, robotics and data analytics.",
-  alternates: { canonical: "/work" },
+    title: "Projects | Michel Merae",
+    description: "Explore Michel Merae’s work in AI engineering, automation, robotics and analytics.",
+    alternates: { canonical: "https://michel-merae.com/work" },
 };
 
-export default function Work() {
-  return (
-    <main className="wrap detail">
-      <Link className="back" href="/#work">
-        <ArrowLeft size={16} /> Selected work
-      </Link>
-      <h1>All projects</h1>
-      <div className="index-list">
-        {getProjects().map((p) => (
-          <article key={p.title}>
-            <div>
-              <p className="eyebrow">{p.category}</p>
-              <h2>
-                {p.study ? (
-                  <Link href={"/work/" + p.study.slug}>{p.title}</Link>
-                ) : (
-                  p.title
-                )}
-              </h2>
+export default function ProjectIndex() {
+    return (
+        <main className="min-h-screen bg-zinc-950 px-6 py-12 text-white">
+            <div className="mx-auto max-w-5xl">
+                <Link href="/" className="text-purple-300 hover:underline">← Michel Merae</Link>
+                <h1 className="mt-12 mb-8 text-5xl font-bold tracking-tight">My Projects</h1>
+                <div className="grid gap-5 md:grid-cols-2">
+                    {getProjects().map(project => (
+                        <Link key={project.slug} href={'/work/' + project.slug} className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-6 hover:border-purple-400">
+                            <p className="mb-2 font-mono text-sm text-purple-400">{project.category}</p>
+                            <h2 className="text-2xl font-bold">{project.title}</h2>
+                            <p className="mt-4 leading-relaxed text-zinc-300">{project.description}</p>
+                        </Link>
+                    ))}
+                </div>
             </div>
-            <div>
-              <p>{p.description}</p>
-              <ul className="tech">
-                {p.tech.map((t) => (
-                  <li key={t}>{t}</li>
-                ))}
-              </ul>
-              {p.study && (
-                <Link className="text-link" href={"/work/" + p.study.slug}>
-                  Read case study <ArrowUpRight size={16} />
-                </Link>
-              )}
-            </div>
-          </article>
-        ))}
-      </div>
-    </main>
-  );
+        </main>
+    );
 }

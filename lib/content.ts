@@ -1,58 +1,84 @@
-import fs from "node:fs";
-import path from "node:path";
-import yaml from "js-yaml";
+import fs from 'fs';
+import path from 'path';
+import yaml from 'js-yaml';
+import { Bot, MessageSquare, Cpu, Workflow, type LucideIcon } from 'lucide-react';
+
+const CONTENT_DIR = path.join(process.cwd(), 'content');
 
 export type Experience = {
-  company: string;
-  role: string;
-  period: string;
-  location: string;
-  description: string;
-  tech: string[];
-};
-
-export type Study = {
-  slug: string;
-  organization: string;
-  year: string;
-  visual: "ticket" | "email" | "report";
-  sections: { heading: string; text: string }[];
+    company: string;
+    role: string;
+    period: string;
+    location: string;
+    description: string;
+    tech: string[];
 };
 
 export type Project = {
-  title: string;
-  category: string;
-  description: string;
-  tech: string[];
-  study?: Study;
+    title: string;
+    category: string;
+    description: string;
+    tech: string[];
+    image?: string;
+    slug: string;
+    context: string;
+    approach: string;
+    outcome: string;
 };
 
 export type Service = {
-  title: string;
-  description: string;
-  deliverable: string;
+    title: string;
+    description: string;
+    icon: LucideIcon;
 };
 
-function readCollection<T>(folder: string): T[] {
-  const directory = path.join(process.cwd(), "content", folder);
-  return fs
-    .readdirSync(directory)
-    .filter((name) => name.endsWith(".yaml"))
-    .sort()
-    .map(
-      (name) =>
-        yaml.load(fs.readFileSync(path.join(directory, name), "utf8")) as T,
-    );
+export function getExperiences(): Experience[] {
+    const dir = path.join(CONTENT_DIR, 'experiences');
+    const files = fs.readdirSync(dir);
+    return files
+        .filter((file) => file.endsWith('.yaml'))
+        .sort() // Ensure chronological order by filename
+        .map((file) => {
+            const content = fs.readFileSync(path.join(dir, file), 'utf8');
+            return yaml.load(content) as Experience;
+        });
 }
 
-export const getExperiences = () => readCollection<Experience>("experiences");
-export const getProjects = () => readCollection<Project>("projects");
-export const getServices = () => readCollection<Service>("services");
+export function getProjects(): Project[] {
+    const dir = path.join(CONTENT_DIR, 'projects');
+    const files = fs.readdirSync(dir);
+    return files
+        .filter((file) => file.endsWith('.yaml'))
+        .sort()
+        .map((file) => {
+            const content = fs.readFileSync(path.join(dir, file), 'utf8');
+            const project = yaml.load(content) as Project & { tags?: string[] };
+            return { ...project, tech: project.tech ?? project.tags ?? [] };
+        });
+}
 
-export type FeaturedProject = Project & { study: Study };
+export function getServices(): Service[] {
+    const dir = path.join(CONTENT_DIR, 'services');
+    const files = fs.readdirSync(dir);
 
-export function getCaseStudies(): FeaturedProject[] {
-  return getProjects().filter((project): project is FeaturedProject =>
-    Boolean(project.study),
-  );
+    const iconMap: Record<string, LucideIcon> = {
+        'Workflow': Workflow,
+        'MessageSquare': MessageSquare,
+        'Bot': Bot,
+        'Cpu': Cpu,
+    };
+
+    return files
+        .filter((file) => file.endsWith('.yaml'))
+        .sort()
+        .map((file) => {
+            const content = fs.readFileSync(path.join(dir, file), 'utf8');
+            const data = yaml.load(content) as Omit<Service, 'icon'> & { icon: string };
+
+            // Transform icon string name to actual React component
+            return {
+                ...data,
+                icon: iconMap[data.icon] || Workflow,
+            };
+        });
 }

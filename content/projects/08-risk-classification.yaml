@@ -1,7 +1,12 @@
 title: Risk Classification System
 category: AI Classification
-description: A ticket classifier flags conversations for review when their language suggests an escalation risk.
+description: LLM-powered ticket classification system that flags conversations for human review when a customer may need additional support.
 tech:
   - LLM Prompts
   - Classification
   - Risk Analysis
+image: "https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&q=80"
+slug: "escalation-risk"
+context: "Customer support"
+approach: "I used an LLM to classify incoming support tickets for escalation risk. The task was to flag conversations that deserved a closer look."
+outcome: "A risk classification gives a reviewer a reason to prioritize a ticket. Assessing this kind of system means looking at missed escalations as well as tickets flagged unnecessarily."

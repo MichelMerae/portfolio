@@ -5,3 +5,8 @@ tech:
   - Python
   - SQL
   - Data Pipeline
+image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80"
+slug: "pipeline-inspection"
+context: "EMPIT"
+approach: "Electromagnetic pipeline inspection produced data that had to be validated before analysis. I built a Python and SQL pipeline to support that quality-control work."
+outcome: "Automating the validation step reduced the time spent checking inspection data from hours to minutes. The shorter feedback cycle helped the team identify data issues earlier."

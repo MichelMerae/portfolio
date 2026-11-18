@@ -5,3 +5,8 @@ tech:
   - Google AppSheet
   - Google Sheets
   - GPS
+image: "https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?auto=format&fit=crop&q=80"
+slug: "industrial-mapping"
+context: "Starship Technologies"
+approach: "Industrial deployments needed mapping information before onboarding could finish. I built an AppSheet application that brought GPS data and Google Sheets into the same process."
+outcome: "The app accelerated onboarding and saved an estimated 20–40 hours per deployment. The time saving applies to the deployment process that used the app."

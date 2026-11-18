@@ -1,36 +1,161 @@
-import Link from "next/link";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
-import type { FeaturedProject } from "@/lib/content";
-import { StudyVisual } from "./StudyVisual";
+"use client";
 
-export function Projects({ projects }: { projects: FeaturedProject[] }) {
-  return (
-    <section className="section wrap" id="work">
-      <div className="section-head">
-        <h2>Selected work</h2>
-        <Link className="text-link" href="/work">
-          All projects <ArrowRight size={16} />
-        </Link>
-      </div>
-      <div className="project-grid">
-        {projects.map(({ title, description, study }) => (
-          <Link
-            key={study.slug}
-            className="work-card"
-            href={"/work/" + study.slug}
-          >
-            <StudyVisual kind={study.visual} />
-            <div className="card-body">
-              <p className="eyebrow">{study.organization}</p>
-              <h3>{title}</h3>
-              <p>{description}</p>
-              <span className="case-link">
-                Read case study <ArrowUpRight size={16} />
-              </span>
+import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
+import type { Project as ProjectType } from "@/lib/content";
+import Image from "next/image";
+
+gsap.registerPlugin(ScrollTrigger);
+
+function ProjectCard({ project, index, registerCard }: { project: ProjectType; index: number; registerCard: (el: HTMLDivElement | null) => void }) {
+    return (
+        <div
+            ref={registerCard}
+            className="w-full md:w-[60vw] min-h-80 md:min-h-[70vh] flex flex-col justify-between bg-zinc-900 border border-zinc-800 p-6 md:p-16 rounded-[2rem] relative group hover:border-zinc-500/50 transition-colors overflow-hidden flex-shrink-0"
+        >
+            {/* Background Image */}
+            <div className="absolute inset-0 z-0 select-none pointer-events-none">
+                {project.image && (
+                    <Image
+                        src={project.image}
+                        alt=""
+                        sizes="(min-width: 768px) 60vw, 100vw"
+                        fill
+                        className="object-cover opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700"
+                    />
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/80 to-zinc-950/30" />
             </div>
-          </Link>
-        ))}
-      </div>
-    </section>
-  );
+
+            {/* Dynamic Spotlight Background - Merged with Image Overlay */}
+            <div
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10 mix-blend-overlay"
+                style={{
+                    background: `radial-gradient(2500px circle at var(--mouse-x) var(--mouse-y), rgba(168,85,247,0.3), transparent 50%)`,
+                }}
+            />
+
+            <div className="z-20 pointer-events-none">
+                {/* Content above background */}
+                <div className="flex justify-between items-start mb-8">
+                    <span className="px-4 py-1 rounded-full border border-zinc-700/50 bg-zinc-950/50 text-sm text-zinc-300 backdrop-blur-md">
+                        {project.category}
+                    </span>
+                    <span className="text-zinc-600 font-mono">0{index + 1}</span>
+                </div>
+                <h3 className="text-4xl md:text-6xl font-bold mb-6 text-white group-hover:text-purple-100 transition-colors drop-shadow-lg">
+                    {project.title}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                    {project.tech?.map((t: string) => (
+                        <span
+                            key={t}
+                            className="text-xs text-zinc-300 bg-zinc-900/80 px-3 py-1 rounded-md border border-zinc-700/50 backdrop-blur-sm"
+                        >
+                            {t}
+                        </span>
+                    ))}
+                </div>
+            </div>
+
+            <div className="z-20 border-t border-zinc-800/50 pt-8 mt-auto pointer-events-auto">
+                <p className="text-lg text-zinc-300 mb-8 pointer-events-none drop-shadow-md">
+                    {project.description}
+                </p>
+                <Link
+                    href={'/work/' + project.slug}
+                    aria-label={'View case study: ' + project.title}
+                    className="inline-flex items-center gap-3 text-white font-bold hover:gap-4 transition-all group/link"
+                >
+                    View Case Study{" "}
+                    <ArrowUpRight className="text-purple-400 group-hover/link:text-white transition-colors" />
+                </Link>
+            </div>
+        </div>
+    );
+}
+
+export function Projects({ projects }: { projects: ProjectType[] }) {
+    const sectionRef = useRef<HTMLDivElement>(null);
+    const triggerRef = useRef(null);
+    const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+
+    useGSAP(
+        () => {
+            const el = sectionRef.current;
+            if (!el) return;
+
+            // Calculate scroll amount: total width of content - viewport width
+            const getScrollAmount = () => -(el.scrollWidth - window.innerWidth);
+
+            const media = gsap.matchMedia();
+            media.add("(min-width: 768px) and (prefers-reduced-motion: no-preference)", () => {
+                gsap.to(el, {
+                    x: getScrollAmount,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: triggerRef.current,
+                        start: "top top",
+                        end: () => "+=" + Math.abs(getScrollAmount()),
+                        scrub: 0.6,
+                        pin: true,
+                        invalidateOnRefresh: true,
+                    },
+                });
+            });
+            return () => media.revert();
+        },
+        { scope: triggerRef }
+    );
+
+    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+        cardsRef.current.forEach((card) => {
+            if (!card) return;
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty("--mouse-x", `${x}px`);
+            card.style.setProperty("--mouse-y", `${y}px`);
+        });
+    };
+
+    return (
+        <section id="work" className="bg-zinc-950 overflow-hidden" onMouseMove={handleMouseMove}>
+            {/* Trigger div that gets pinned */}
+            <div ref={triggerRef}>
+                <div ref={sectionRef} className="project-track relative md:min-h-screen md:w-max md:flex md:flex-row">
+                    {/* Intro Slide */}
+                    <div className="w-full md:min-h-screen md:w-[40vw] flex-shrink-0 flex flex-col justify-center px-6 py-16 md:px-16 relative border-r border-zinc-900">
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_0%_50%,rgba(100,20,200,0.1),rgba(0,0,0,0))]" />
+                        <span className="text-purple-400 font-mono mb-6 block">01 / WORK</span>
+                        <h2 className="text-5xl md:text-8xl font-bold mb-8">
+                            My
+                            <br /> Projects
+                        </h2>
+                        <p className="text-xl text-zinc-400 max-w-xl">
+                            A collection of AI systems, automation workflows, and production-ready applications. <br />
+                            <br />
+                            <Link href="/work" className="text-base text-purple-300 underline underline-offset-4">Browse all projects</Link>
+                        </p>
+                    </div>
+
+                    {/* Project Cards Container */}
+                    <div className="project-cards flex flex-col gap-6 px-6 pb-12 md:min-h-screen md:flex-row md:items-center md:gap-24 md:px-24 md:pb-0 flex-shrink-0">
+                        {projects.map((project, index) => (
+                            <ProjectCard
+                                key={index}
+                                project={project}
+                                index={index}
+                                registerCard={(el) => (cardsRef.current[index] = el)}
+                            />
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
 }

@@ -1,44 +1,75 @@
-import Image from "next/image";
-import Link from "next/link";
-import { ArrowUpRight, MapPin } from "lucide-react";
-import portrait from "@/assets/personal_photos/pictoart_1764535413241.png";
+"use client";
+
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { useRef } from "react";
 
 export function Hero() {
-  return (
-    <section className="wrap hero">
-      <div className="intro">
-        <p className="eyebrow location">
-          <MapPin size={14} /> Hamburg, Germany
-        </p>
-        <h1>
-          AI automation for <em>support &amp; operations.</em>
-        </h1>
-        <p className="lede">
-          I’m Michel, an AI engineer. I build n8n workflows that draft support
-          replies, personalize emails and flag cases that need a person. I also
-          fix workflows that fail in ways your team can’t explain.
-        </p>
-        <div className="actions">
-          <Link className="button" href="/work/zendesk-draft-review">
-            See the Zendesk case study <ArrowUpRight size={17} />
-          </Link>
-          <a className="text-link" href="#contact">
-            Discuss a workflow
-          </a>
-        </div>
-      </div>
-      <figure className="portrait">
-        <Image
-          src={portrait}
-          alt="Michel Merae"
-          sizes="(min-width: 800px) 370px, 84vw"
-          priority
-        />
-        <figcaption>
-          <strong>Michel Merae</strong>
-          <span>AI Applications Designer</span>
-        </figcaption>
-      </figure>
-    </section>
-  );
+    const container = useRef(null);
+    const titleRef = useRef(null);
+    const subtitleRef = useRef(null);
+    const ctaRef = useRef(null);
+
+    useGSAP(() => {
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        const tl = gsap.timeline();
+
+        tl.from(titleRef.current, {
+            y: 100,
+            opacity: 0,
+            duration: 1,
+            ease: "power4.out",
+        })
+            .from(subtitleRef.current, {
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                ease: "power3.out",
+            }, "-=0.5")
+            .from(ctaRef.current, {
+                y: 20,
+                opacity: 0,
+                duration: 0.8,
+                ease: "power2.out",
+            }, "-=0.5");
+
+    }, { scope: container });
+
+    return (
+        <section ref={container} className="min-h-svh py-24 flex items-center justify-center relative overflow-hidden bg-zinc-950 text-white">
+            {/* Background Gradient */}
+            <div className="absolute inset-0 bg-zinc-950">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(100,20,200,0.15),rgba(0,0,0,0))]" />
+                <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-zinc-950 to-transparent" />
+                {/* Grid Pattern */}
+                <div className="absolute inset-0 bg-[size:50px_50px] bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+            </div>
+
+            <div className="container mx-auto px-6 text-center z-10">
+                <div className="overflow-hidden">
+                    <h1 ref={titleRef} className="text-5xl md:text-8xl font-bold tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-zinc-400">
+                        Michel Merae
+                    </h1>
+                </div>
+
+                <div ref={subtitleRef}>
+                    <p className="text-xl md:text-3xl text-zinc-400 mb-8 max-w-3xl mx-auto font-light">
+                        AI Engineer & Automation Architect
+                    </p>
+                    <p className="text-lg text-zinc-500 mb-10 max-w-2xl mx-auto">
+                        I build AI workflows for support, coaching and operations, from drafting a Zendesk reply to automating a weekly report.
+                    </p>
+                </div>
+
+                <div ref={ctaRef} className="flex flex-wrap gap-4 justify-center">
+                    <a href="#work" className="bg-white text-black px-8 py-3 rounded-full font-medium hover:bg-zinc-200 transition-colors">
+                        View My Work
+                    </a>
+                    <a href="#contact" className="border border-zinc-700 text-white px-8 py-3 rounded-full font-medium hover:bg-zinc-900 transition-colors">
+                        Get in Touch
+                    </a>
+                </div>
+            </div>
+        </section>
+    );
 }
